@@ -2,7 +2,6 @@ public class Stack<T> {
 
     private Node<T> head;
 
-
     public T peek() {
         return head.value;
     }
@@ -14,7 +13,7 @@ public class Stack<T> {
 
     }
 
-    public void push(T t){
+    public void push(T t) {
         Node<T> node = new Node<>(t);
         node.next = head;
         head = node;
