@@ -4,14 +4,18 @@ import java.util.Objects;
 public class ArrayTasks {
 
     public static void main(String[] args) {
-        int[] array = {1, 1 , 2, 3, 4, 5};
-        reverseArray(array);
-        sumArray(array);
-        findMax(array);
-        findMin(array);
-        rotateArray(array, 5);
-        getUniqueElements(array);
+        int[] array = {1, 2, 3};
+        int[] array2 = {2, 3, 4};
+       reverseArray(array);
+       sumArray(array);
+       findMax(array);
+       findMin(array);
+       rotateArray(array, 5);
+       getUniqueElements(array);
         compressArray(array);
+        System.out.println(arePermutations(array, array2));
+        union(array, array2);
+
     }
 
     public static void reverseArray(int[] array) {
@@ -91,4 +95,43 @@ public class ArrayTasks {
 
         System.out.println(String.join(", ", compressedList));
     }
+
+    public static boolean arePermutations(int[] arr1, int[] arr2){
+
+        if (arr1.length != arr2.length){
+            return false;
+        }
+        for (int i : arr1){
+            boolean found = false;
+            for (int j : arr2){
+                if (i == j){
+                    found = true;
+                    break;
+                }
+            }
+            if (!found){
+                return false;
+            }
+        }
+        return true;
+
+    }
+
+    public static void  union(int[] arr1, int[] arr2){
+        ArrayList <Integer> unionList = new ArrayList<>();
+        for (int i : arr1){
+            if (!unionList.contains(i)){
+                unionList.add(i);
+            }
+        }
+        for (int i : arr2){
+            if (!unionList.contains(i)){
+                unionList.add(i);
+            }
+        }
+        for (int i : unionList){
+            System.out.print(i + " ");
+        }
+    }
+
 }
