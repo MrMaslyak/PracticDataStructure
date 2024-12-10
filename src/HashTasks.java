@@ -7,6 +7,11 @@ public class HashTasks {
         System.out.println(countCharacterFrequency(str));
         int[] arr = {1, 2, 3, 2, 4, 5, 1};
         System.out.println(findUniqueNumbers(arr));
+        String str1 = "listen";
+        String str2 = "silent";
+        System.out.println(areAnagrams(str1, str2));
+        String text = "This is a sample text. This text is a sample.";
+        System.out.println(countWordFrequency(text));
     }
 
 
@@ -25,6 +30,27 @@ public class HashTasks {
             uniqueNumbers.add(i);
         }
         return uniqueNumbers;
+    }
+
+    public static boolean areAnagrams(String str1, String str2){
+        HashSet <Character> set1 = new HashSet<>();
+        HashSet<Character> set2 = new HashSet<>();
+        for (char c : str1.toCharArray()){
+            set1.add(c);
+        }
+        for (char c : str2.toCharArray()){
+            set2.add(c);
+        }
+        return set1.equals(set2);
+    }
+
+    public static HashMap<String, Integer> countWordFrequency(String text){
+        HashMap<String, Integer> wordFrequencyMap = new HashMap<>();
+        String[] words = text.split("\\s+");
+        for (String word : words){
+            wordFrequencyMap.put(word, wordFrequencyMap.getOrDefault(word, 0) + 1);
+        }
+        return wordFrequencyMap;
     }
 
     
